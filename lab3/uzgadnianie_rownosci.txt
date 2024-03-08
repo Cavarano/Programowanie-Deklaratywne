@@ -1,0 +1,52 @@
+
+	1.
+
+fu(a,X,f(g(Y)))
+fu(V,h(Z,V),f(V))
+
+V = a
+
+fu(a,X,f(g(Y)))
+fu(a,h(Z,a),f(a))
+
+Z = h(Z,a)
+
+fu(a,h(Z,a),f(g(Y)))
+fu(a,h(Z,a),f(a))
+
+f(g(Y)) != f(a) Tych funkcji nie da się uzgodnić.
+
+W prologu można sie dowiedzieć to z fu(a,X,f(g(Y))) = fu(V,h(Z,V),f(V)).
+
+	2.
+
+fu(a,X,f(g(Y)))
+fu(Y,f(Z),f(Z))
+
+Y = a
+
+
+fu(a,X,f(g(a)))
+fu(a,f(Z),f(Z))
+
+X = f(Z)
+
+fu(a,f(Z),f(g(a)))
+fu(a,f(Z),f(Z))
+
+Z = g(a)
+
+fu(a,f(g(a)),f(g(a))) = fu(a,f(g(a)),f(g(a)))
+
+W prologu:
+?- fu(a,X,f(g(Y))) = fu(Y,f(Z),f(Z)).
+X = f(g(a)),
+Y = a,
+Z = g(a).
+
+	3.
+
+?- fu(f(X),Y,a)=fu(f(g(Y)),c,Z).
+X = g(c),
+Y = c,
+Z = a.
