@@ -1,0 +1,21 @@
+ojciec(karol,jan).
+ojciec(karol,adam).
+dziecko(tomasz,jan).
+dziecko(piotr,adam).
+dziadek(karol,marek).
+dziadek(X,Y):- ojciec(X,Z), dziecko(Y,Z).
+
+/*
+[trace]  ?- dziadek(X,piotr).
+   Call: (10) dziadek(_19186, piotr) ? creep
+   Call: (11) ojciec(_19186, _20376) ? creep
+   Exit: (11) ojciec(karol, jan) ? creep
+   Call: (11) dziecko(piotr, jan) ? creep
+   Fail: (11) dziecko(piotr, jan) ? creep
+   Redo: (11) ojciec(_19186, _20376) ? creep
+   Exit: (11) ojciec(karol, adam) ? creep
+   Call: (11) dziecko(piotr, adam) ? creep
+   Exit: (11) dziecko(piotr, adam) ? creep
+   Exit: (10) dziadek(karol, piotr) ? creep
+X = karol.
+*/
