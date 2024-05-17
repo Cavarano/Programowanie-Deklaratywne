@@ -78,10 +78,14 @@ lista_mniejsza_o1::[Int]->[Int]
 lista_mniejsza_o1 []=[]
 lista_mniejsza_o1 (x:xs)=(mn_o1 x):(lista_mniejsza_o1 xs)
 
-
 pom3 x=x*3
 pomnozo3::[Int]->[Int]
 pomnozo3 []=[]
 pomnozo3 (x:xs)=(pom3 x):(pomnozo3 xs)
+
+
+dlg::[Int]->Int
+dlg []=0
+dlg (h:t)= 1+(dlg t)
 
 
